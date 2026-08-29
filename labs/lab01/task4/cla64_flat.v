@@ -12,8 +12,6 @@ module cla64_flat(
   output        cout
 );
 
-
-
   wire [63:0] p, g;
   wire [64:1] c;   // c[1]..c[64] are the 64 carries; think of cin as c[0]
 
@@ -22,7 +20,7 @@ module cla64_flat(
   //
   // This part is genuinely uniform across all 64 bits (same operation at
   // every position), so a generate-for loop is the right tool here.
-  // `genvar` is a compile-time-only loop variable -- it does not exist as
+  // ⁠ genvar ⁠ is a compile-time-only loop variable -- it does not exist as
   // a real signal in the final circuit, it just controls how many times
   // the loop body is elaborated.
   // ---------------------------------------------------------------------
@@ -43,7 +41,7 @@ module cla64_flat(
   // and a single generate-for loop cannot produce them directly (both the
   // number of terms AND the length of each term change with k).
   //
-  // Instead: use an AI coding assistant to generate these 64 `assign`
+  // Instead: use an AI coding assistant to generate these 64 ⁠ assign ⁠
   // statements.
   //   - Give it your own C1..C4 equations from cla4.v as the exact
   //     pattern to continue.
@@ -129,13 +127,10 @@ module cla64_flat(
 
   assign cout = c[64];
 
-
   // ---------------------------------------------------------------------
   // Step 3: sum bits
   // ---------------------------------------------------------------------
   // TODO: assign #(2) sum = p ^ {c[63:1], cin};
   assign #(2) sum = p ^ {c[63:1], cin};
-
-
 
 endmodule
