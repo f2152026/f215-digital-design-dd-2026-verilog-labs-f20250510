@@ -25,6 +25,7 @@ module rca64(
   output        cout
 );
 
+
   // TODO: your 64-bit ripple-carry structure goes here.
   wire [64:0] c;
   assign c[0] = cin;
@@ -35,5 +36,6 @@ module rca64(
     end
   endgenerate
   assign cout = c[64];
+
 
 endmodule

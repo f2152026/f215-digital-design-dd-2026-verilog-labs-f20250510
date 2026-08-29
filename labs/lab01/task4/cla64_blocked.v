@@ -18,6 +18,7 @@ module cla64_blocked(
   output        cout
 );
 
+
   wire [15:1] c; // Ripple carry wires between 4-bit CLA blocks
 
   cla4 block0  (.a(a[3:0]),   .b(b[3:0]),   .cin(cin),   .sum(sum[3:0]),   .cout(c[1]));
